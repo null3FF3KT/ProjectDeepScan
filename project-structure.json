@@ -1,0 +1,416 @@
+{
+  "name": ".",
+  "type": ".NET",
+  "path": ".",
+  "children": [
+    {
+      "name": "ProjectDeepScan",
+      "type": "Solution",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/ProjectDeepScan.sln",
+      "children": [],
+      "members": []
+    },
+    {
+      "name": "ProjectDeepScan",
+      "type": "Project",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/ProjectDeepScan.csproj",
+      "children": [],
+      "members": []
+    },
+    {
+      "name": "Program",
+      "type": "Class",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/Program.cs",
+      "children": [],
+      "members": [
+        {
+          "name": "Main",
+          "type": "Method",
+          "signature": "public static void Main(string[] args)",
+          "accessLevel": "public"
+        },
+        {
+          "name": "Program",
+          "type": "Property",
+          "signature": "public class Program",
+          "accessLevel": "public"
+        }
+      ]
+    },
+    {
+      "name": "Exporters",
+      "type": "Directory",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/Exporters",
+      "children": [
+        {
+          "name": "IProjectExporter",
+          "type": "Interface",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Exporters/IProjectExporter.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "IProjectExporter",
+              "type": "Property",
+              "signature": "public interface IProjectExporter",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "MarkdownProjectExporter",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Exporters/MarkdownProjectExporter.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "Export",
+              "type": "Method",
+              "signature": "public void Export(ProjectNode node, string outputPath)",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "JsonProjectExporter",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Exporters/JsonProjectExporter.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "Export",
+              "type": "Method",
+              "signature": "public void Export(ProjectNode node, string outputPath)",
+              "accessLevel": "public"
+            }
+          ]
+        }
+      ],
+      "members": []
+    },
+    {
+      "name": "Services",
+      "type": "Directory",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/Services",
+      "children": [
+        {
+          "name": "ProjectScannerService",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Services/ProjectScannerService.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "ScanProject",
+              "type": "Method",
+              "signature": "public ProjectNode ScanProject()",
+              "accessLevel": "public"
+            },
+            {
+              "name": "PrintTree",
+              "type": "Method",
+              "signature": "public void PrintTree(ProjectNode node, string indent = \u0022\u0022)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "ProjectScannerService",
+              "type": "Property",
+              "signature": "public class ProjectScannerService",
+              "accessLevel": "public"
+            },
+            {
+              "name": "ScanProject()",
+              "type": "Property",
+              "signature": "public ProjectNode ScanProject()",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "GitIgnoreParser",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Services/GitIgnoreParser.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "ShouldIgnorePath",
+              "type": "Method",
+              "signature": "public bool ShouldIgnorePath(string path, bool isAngularProject = false)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GitIgnoreParser",
+              "type": "Property",
+              "signature": "public class GitIgnoreParser",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "CodeAnalyzer",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Services/CodeAnalyzer.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "AnalyzeFile",
+              "type": "Method",
+              "signature": "public List\u003CMemberInfo\u003E AnalyzeFile(string filePath)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "CodeAnalyzer",
+              "type": "Property",
+              "signature": "public class CodeAnalyzer",
+              "accessLevel": "public"
+            },
+            {
+              "name": "{match.Groups[2].Value}\u0022,",
+              "type": "Event",
+              "signature": "public event {match.Groups[1].Value} {match.Groups[2].Value}\u0022,",
+              "accessLevel": "public"
+            }
+          ]
+        }
+      ],
+      "members": []
+    },
+    {
+      "name": "Strategies",
+      "type": "Directory",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/Strategies",
+      "children": [
+        {
+          "name": "GenericStrategy",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Strategies/GenericStrategy.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "CanHandle",
+              "type": "Method",
+              "signature": "public bool CanHandle(string projectPath)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetProjectType",
+              "type": "Method",
+              "signature": "public string GetProjectType()",
+              "accessLevel": "public"
+            },
+            {
+              "name": "IsProjectFile",
+              "type": "Method",
+              "signature": "public bool IsProjectFile(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetFileType",
+              "type": "Method",
+              "signature": "public string GetFileType(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetComponentName",
+              "type": "Method",
+              "signature": "public string GetComponentName(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetMembers",
+              "type": "Method",
+              "signature": "public List\u003CMemberInfo\u003E GetMembers(string filePath)",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "IProjectStrategy",
+          "type": "Interface",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Strategies/IProjectStrategy.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "IProjectStrategy",
+              "type": "Property",
+              "signature": "public interface IProjectStrategy",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "AngularStrategy",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Strategies/AngularStrategy.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "CanHandle",
+              "type": "Method",
+              "signature": "public bool CanHandle(string projectPath)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetProjectType",
+              "type": "Method",
+              "signature": "public string GetProjectType()",
+              "accessLevel": "public"
+            },
+            {
+              "name": "IsProjectFile",
+              "type": "Method",
+              "signature": "public bool IsProjectFile(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetFileType",
+              "type": "Method",
+              "signature": "public string GetFileType(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetComponentName",
+              "type": "Method",
+              "signature": "public string GetComponentName(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetMembers",
+              "type": "Method",
+              "signature": "public List\u003CMemberInfo\u003E GetMembers(string filePath)",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "DotNetStrategy",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Strategies/DotNetStrategy.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "CanHandle",
+              "type": "Method",
+              "signature": "public bool CanHandle(string projectPath)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetProjectType",
+              "type": "Method",
+              "signature": "public string GetProjectType()",
+              "accessLevel": "public"
+            },
+            {
+              "name": "IsProjectFile",
+              "type": "Method",
+              "signature": "public bool IsProjectFile(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetFileType",
+              "type": "Method",
+              "signature": "public string GetFileType(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetComponentName",
+              "type": "Method",
+              "signature": "public string GetComponentName(string fileName)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "GetMembers",
+              "type": "Method",
+              "signature": "public List\u003CMemberInfo\u003E GetMembers(string filePath)",
+              "accessLevel": "public"
+            },
+            {
+              "name": "codeAnalyzer)",
+              "type": "Property",
+              "signature": "public DotNetStrategy(CodeAnalyzer codeAnalyzer)",
+              "accessLevel": "public"
+            }
+          ]
+        }
+      ],
+      "members": []
+    },
+    {
+      "name": "Models",
+      "type": "Directory",
+      "path": "/home/cbill/source/Tools/ProjectDeepScan/Models",
+      "children": [
+        {
+          "name": "MemberInfo",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Models/MemberInfo.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "MemberInfo",
+              "type": "Property",
+              "signature": "public class MemberInfo",
+              "accessLevel": "public"
+            },
+            {
+              "name": "Type",
+              "type": "Property",
+              "signature": "public string Type",
+              "accessLevel": "public"
+            },
+            {
+              "name": "Signature",
+              "type": "Property",
+              "signature": "public string Signature",
+              "accessLevel": "public"
+            },
+            {
+              "name": "AccessLevel",
+              "type": "Property",
+              "signature": "public string AccessLevel",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "ProjectNode",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Models/ProjectNode.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "ProjectNode",
+              "type": "Property",
+              "signature": "public class ProjectNode",
+              "accessLevel": "public"
+            },
+            {
+              "name": "Type",
+              "type": "Property",
+              "signature": "public string Type",
+              "accessLevel": "public"
+            },
+            {
+              "name": "Path",
+              "type": "Property",
+              "signature": "public string Path",
+              "accessLevel": "public"
+            },
+            {
+              "name": "Children",
+              "type": "Property",
+              "signature": "public List\u003CProjectNode\u003E Children",
+              "accessLevel": "public"
+            },
+            {
+              "name": "Members",
+              "type": "Property",
+              "signature": "public List\u003CMemberInfo\u003E Members",
+              "accessLevel": "public"
+            }
+          ]
+        }
+      ],
+      "members": []
+    }
+  ],
+  "members": []
+}
