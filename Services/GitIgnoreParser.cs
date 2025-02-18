@@ -4,13 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ProjectDeepScan.Services;
+namespace ProjectScanner.Services;
 
 public class GitIgnoreParser
 {
     private readonly string _projectPath;
     private readonly List<string> _gitIgnorePatterns;
     private readonly HashSet<string> _baseIgnoreDirs;
+    private readonly HashSet<string> _alwaysIgnoreDirs;
 
     public GitIgnoreParser(string projectPath)
     {
@@ -22,12 +23,18 @@ public class GitIgnoreParser
             "tmp",
             "out-tsc",
             "bazel-out",
-            "coverage",
+            "coverage"
+        };
+        
+        // These directories will be ignored at any level in the project
+        _alwaysIgnoreDirs = new HashSet<string>
+        {
             "bin",
             "obj",
             "Debug",
             "Release"
         };
+        
         _gitIgnorePatterns = LoadGitIgnore(projectPath);
     }
 
@@ -91,7 +98,7 @@ public class GitIgnoreParser
     public bool ShouldIgnorePath(string path, bool isAngularProject = false)
     {
         var relativePath = Path.GetRelativePath(_projectPath, path).Replace('\\', '/');
-        var pathSegments = relativePath.Split(Path.DirectorySeparatorChar);
+        var pathSegments = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
         // Don't treat root directory "." as hidden
         if (relativePath != "." && pathSegments.Any(segment => 
@@ -102,6 +109,14 @@ public class GitIgnoreParser
             return true;
         }
 
+        // Check for always-ignore directories at any level
+        if (pathSegments.Any(segment => _alwaysIgnoreDirs.Contains(segment)))
+        {
+            Console.WriteLine($"Ignoring build directory: {relativePath}");
+            return true;
+        }
+
+        // Check base ignore directories at root level
         if (_baseIgnoreDirs.Contains(pathSegments[0]))
         {
             return true;

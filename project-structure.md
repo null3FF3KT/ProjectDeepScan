@@ -1,7 +1,7 @@
 # . Project Structure
 *Project Type: .NET*
 
-Generated on: 2025-02-17 20:42:40
+Generated on: 2025-02-18 10:33:22
 
 ## Directory Structure
 ```
@@ -9,22 +9,37 @@ Generated on: 2025-02-17 20:42:40
     ├── ProjectDeepScan (Solution)
     ├── ProjectDeepScan (Project)
     ├── Program (Class)
+    │   ├── (2 members)
     ├── Exporters (Directory)
     │   ├── IProjectExporter (Interface)
+    │   │   ├── (1 members)
     │   ├── MarkdownProjectExporter (Class)
+    │   │   ├── (1 members)
     │   └── JsonProjectExporter (Class)
+    │       ├── (1 members)
     ├── Services (Directory)
     │   ├── ProjectScannerService (Class)
+    │   │   ├── (4 members)
     │   ├── GitIgnoreParser (Class)
+    │   │   ├── (2 members)
     │   └── CodeAnalyzer (Class)
+    │       ├── (3 members)
     ├── Strategies (Directory)
     │   ├── GenericStrategy (Class)
+    │   │   ├── (6 members)
     │   ├── IProjectStrategy (Interface)
+    │   │   ├── (1 members)
     │   ├── AngularStrategy (Class)
+    │   │   ├── (6 members)
     │   └── DotNetStrategy (Class)
+    │       ├── (6 members)
     └── Models (Directory)
         ├── MemberInfo (Class)
-        └── ProjectNode (Class)
+        │   ├── (4 members)
+        ├── ProjectNode (Class)
+        │   ├── (5 members)
+        └── ScannerConfig (Class)
+            ├── (1 members)
 ```
 
 ## Detailed Type Information
@@ -37,7 +52,7 @@ Generated on: 2025-02-17 20:42:40
 #### Methods
 - `public static void Main(string[] args)`
 
-#### Propertys
+#### Properties
 - `public class Program`
 
 ### Exporters/IProjectExporter/IProjectExporter
@@ -45,7 +60,7 @@ Generated on: 2025-02-17 20:42:40
 
 **Members:**
 
-#### Propertys
+#### Properties
 - `public interface IProjectExporter`
 
 ### Exporters/MarkdownProjectExporter/MarkdownProjectExporter
@@ -73,7 +88,7 @@ Generated on: 2025-02-17 20:42:40
 - `public void PrintTree(ProjectNode node, string indent = "")`
 - `public ProjectNode ScanProject()`
 
-#### Propertys
+#### Properties
 - `public class ProjectScannerService`
 - `public ProjectNode ScanProject()`
 
@@ -85,7 +100,7 @@ Generated on: 2025-02-17 20:42:40
 #### Methods
 - `public bool ShouldIgnorePath(string path, bool isAngularProject = false)`
 
-#### Propertys
+#### Properties
 - `public class GitIgnoreParser`
 
 ### Services/CodeAnalyzer/CodeAnalyzer
@@ -99,7 +114,7 @@ Generated on: 2025-02-17 20:42:40
 #### Methods
 - `public List<MemberInfo> AnalyzeFile(string filePath)`
 
-#### Propertys
+#### Properties
 - `public class CodeAnalyzer`
 
 ### Strategies/GenericStrategy/GenericStrategy
@@ -120,7 +135,7 @@ Generated on: 2025-02-17 20:42:40
 
 **Members:**
 
-#### Propertys
+#### Properties
 - `public interface IProjectStrategy`
 
 ### Strategies/AngularStrategy/AngularStrategy
@@ -149,15 +164,12 @@ Generated on: 2025-02-17 20:42:40
 - `public string GetProjectType()`
 - `public bool IsProjectFile(string fileName)`
 
-#### Propertys
-- `public DotNetStrategy(CodeAnalyzer codeAnalyzer)`
-
 ### Models/MemberInfo/MemberInfo
 **Type**: Class
 
 **Members:**
 
-#### Propertys
+#### Properties
 - `public string AccessLevel`
 - `public class MemberInfo`
 - `public string Signature`
@@ -168,14 +180,23 @@ Generated on: 2025-02-17 20:42:40
 
 **Members:**
 
-#### Propertys
+#### Properties
 - `public List<ProjectNode> Children`
 - `public List<MemberInfo> Members`
 - `public string Path`
 - `public class ProjectNode`
 - `public string Type`
+
+### Models/ScannerConfig/ScannerConfig
+**Type**: Class
+
+**Members:**
+
+#### Properties
+- `public class ScannerConfig`
+
 ## File Type Summary
-- **Class**: 11 files
+- **Class**: 12 files
 - **Interface**: 2 files
 - **.NET**: 1 files
 - **Solution**: 1 files

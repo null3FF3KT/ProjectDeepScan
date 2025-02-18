@@ -5,6 +5,15 @@ namespace ProjectDeepScan.Exporters;
 
 public class MarkdownProjectExporter : IProjectExporter
 {
+    private readonly Dictionary<string, string> _pluralizations = new()
+    {
+        { "Property", "Properties" },
+        { "Method", "Methods" },
+        { "Event", "Events" },
+        { "Class", "Classes" },
+        { "Interface", "Interfaces" }
+    };
+
     public void Export(ProjectNode node, string outputPath)
     {
         var fullPath = Path.Combine(node.Path, outputPath);
@@ -29,9 +38,9 @@ public class MarkdownProjectExporter : IProjectExporter
         // Add detailed member information
         content.AppendLine("## Detailed Type Information");
         BuildDetailedInformation(node, content);
-
+        
         // Add file type summary
-        content.AppendLine("## File Type Summary");
+        content.AppendLine("\n## File Type Summary");
         var fileTypes = GetFileTypeSummary(node);
         foreach (var (type, count) in fileTypes)
         {
@@ -45,6 +54,13 @@ public class MarkdownProjectExporter : IProjectExporter
     {
         var marker = isLast ? "└── " : "├── ";
         content.AppendLine($"{prefix}{marker}{node.Name} ({node.Type})");
+        
+        // Show member count if any exist
+        if (node.Members.Any())
+        {
+            var newPrefix = prefix + (isLast ? "    " : "│   ");
+            content.AppendLine($"{newPrefix}├── ({node.Members.Count} members)");
+        }
         
         for (int i = 0; i < node.Children.Count; i++)
         {
@@ -69,7 +85,8 @@ public class MarkdownProjectExporter : IProjectExporter
 
             foreach (var group in groupedMembers)
             {
-                content.AppendLine($"\n#### {group.Key}s");
+                var pluralType = _pluralizations.GetValueOrDefault(group.Key, $"{group.Key}s");
+                content.AppendLine($"\n#### {pluralType}");
                 foreach (var member in group.OrderBy(m => m.Name))
                 {
                     content.AppendLine($"- `{member.Signature}`");

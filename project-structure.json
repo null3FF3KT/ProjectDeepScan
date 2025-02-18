@@ -321,12 +321,6 @@
               "type": "Method",
               "signature": "public List\u003CMemberInfo\u003E GetMembers(string filePath)",
               "accessLevel": "public"
-            },
-            {
-              "name": "codeAnalyzer)",
-              "type": "Property",
-              "signature": "public DotNetStrategy(CodeAnalyzer codeAnalyzer)",
-              "accessLevel": "public"
             }
           ]
         }
@@ -404,6 +398,20 @@
               "name": "Members",
               "type": "Property",
               "signature": "public List\u003CMemberInfo\u003E Members",
+              "accessLevel": "public"
+            }
+          ]
+        },
+        {
+          "name": "ScannerConfig",
+          "type": "Class",
+          "path": "/home/cbill/source/Tools/ProjectDeepScan/Models/ScannerConfig.cs",
+          "children": [],
+          "members": [
+            {
+              "name": "ScannerConfig",
+              "type": "Property",
+              "signature": "public class ScannerConfig",
               "accessLevel": "public"
             }
           ]
